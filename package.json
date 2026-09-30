@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "mocha test/**/*.test.js --exit"
+    "test": "mocha test/**/*.test.js --exit",
+    "test:report": "mocha test/**/*.test.js --exit --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=report,html=true,json=true",
+    "test:ci": "start-server-and-test start http://127.0.0.1:3000/ test:report"
   },
   "author": "",
   "license": "ISC",
@@ -28,7 +30,9 @@
   "devDependencies": {
     "chai": "^6.2.2",
     "mocha": "^11.8.0",
+    "mochawesome": "^8.1.1",
     "nodemon": "^3.1.4",
+    "start-server-and-test": "^3.0.12",
     "supertest": "^7.2.2"
   }
 }

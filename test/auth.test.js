@@ -1,10 +1,9 @@
-import request from 'supertest';
 import { expect } from 'chai';
-import app from '../src/app.js';
+import { api } from './helpers/api.js';
 
 describe('POST /api/auth/login', () => {
   it('deve retornar 200 e um token quando o admin informar e-mail e senha corretos', async () => {
-    const resposta = await request(app)
+    const resposta = await api()
       .post('/api/auth/login')
       .send({ email: 'admin@escola.com', senha: 'admin123' });
 
@@ -13,7 +12,7 @@ describe('POST /api/auth/login', () => {
   });
 
   it('deve retornar 401 quando a senha informada for inválida', async () => {
-    const resposta = await request(app)
+    const resposta = await api()
       .post('/api/auth/login')
       .send({ email: 'admin@escola.com', senha: 'senha-incorreta' });
 

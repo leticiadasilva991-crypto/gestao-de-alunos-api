@@ -120,10 +120,27 @@ seedadas de demonstração.
 
 ### Testes
 
-Execute `npm test` com o MongoDB disponível. Os testes usam Mocha, SuperTest e Chai, e o fluxo de
-cadastro, matrícula e entrega percorre os casos de `test/fixtures/fluxoEntregaTrabalho.json`.
-O workflow `.github/workflows/tests.yml` executa a mesma suíte em cada push ou pull request para
-`main`, com um serviço MongoDB dedicado.
+Os testes usam Mocha, SuperTest e Chai, e o fluxo de cadastro, matrícula e entrega percorre os casos
+de `test/fixtures/fluxoEntregaTrabalho.json`. Com o MongoDB disponível, use:
+
+```bash
+# Apenas executar os testes
+npm test
+
+# Executar testes e gerar relatório HTML/JSON em mochawesome-report/
+npm run test:report
+
+# Iniciar a API, aguardar o health check, testar e gerar relatório
+npm run test:ci
+```
+
+`npm run test:ci` usa a porta 3000 por padrão. Para executá-lo localmente, configure as variáveis
+de ambiente (`MONGODB_URI`, `BASE_URL`, `ADMIN_EMAIL` e `ADMIN_SENHA`) de acordo com seu ambiente.
+O workflow `.github/workflows/tests.yml` roda esse fluxo em cada push ou pull request para `main`,
+com um serviço MongoDB dedicado. Também pode ser iniciado manualmente em **Actions > Testes de API >
+Run workflow**. O relatório é publicado como artefato `mochawesome-report` mesmo quando os testes
+falham. Para baixá-lo, abra a execução em **Actions**, selecione o artefato no final da página e
+abra `report.html`.
 
 ## Documentação da API (Swagger)
 
