@@ -1,0 +1,23 @@
+[
+    {
+        "testTitle": "Validar o cadastrar de um aluno com sucesso",
+        "dadosAluno": {
+            "nome": "Apolo F. Silva",
+            "email": "apolo.futum@example.com",
+            "matricula": "A-10",
+            "senha": "123456"
+        },
+        "statusCodeEsperado": 201
+    },
+        {
+        "testTitle": "Validar o cadastrar de um aluno com sucesso",
+        "dadosAluno": {
+            "nome": "Apolo Silva",
+            "email": "apolo.futum2026@example.com",
+            "matricula": "A543526",
+            "senha": "123456"
+        },
+        "statusCodeEsperado": 201
+    }
+
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "cenario": "Validar que um aluno Wedney que acaba de ser cadastrado pode ser matriculado em uma nova disciplina",
+        "dadosAluno": {
+            "nome": "Wedney Silva",
+            "email": "wedney.silva.8765@example.com",
+            "matricula": "W126543526",
+            "senha": "123456"
+        },
+        "dadosDisciplina": {
+            "nome": "Pensamento Computacional",
+            "codigo": "PC03454",
+            "cargaHoraria": 60
+        },
+        "trabalho": {
+            "disciplinaId": "e7146d02-5f14-48d9-8ff0-04e83a412814",
+            "titulo": "O que são algoritmos?",
+            "descricao": "Produção da sequência de cinco passos para a ação de comer um sanduíche e a rotina de pensamento proposta na aula."
+        },
+        "statusCodeAluno": 201,
+        "statusCodeDisciplina": 201,
+        "statusCodeMatricula": 201,
+        "statusCodeConsultaMatricula": 200,
+        "statusCodeTrabalho": 201
+    },
+    {
+        "cenario": "Validar que um aluno Adriano que acaba de ser cadastrado pode ser matriculado em uma nova disciplina",
+        "dadosAluno": {
+            "nome": "Adriano Queiroz",
+            "email": "adriano.queiroz.8765@example.com",
+            "matricula": "A126543526",
+            "senha": "123456"
+        },
+        "dadosDisciplina": {
+            "nome": "Pensamento Computacional",
+            "codigo": "PC03455",
+            "cargaHoraria": 60
+        },
+        "trabalho": {
+            "disciplinaId": "4877b508-bd9a-4c5b-a72b-5cf400b2186e",
+            "titulo": "O que é um loop?",
+            "descricao": "Descrevendo a função principal dos loops na execução repetida de um bloco de código."
+        },
+        "statusCodeAluno": 201,
+        "statusCodeDisciplina": 201,
+        "statusCodeMatricula": 201,
+        "statusCodeConsultaMatricula": 200,
+        "statusCodeTrabalho": 201
+    }
+]

@@ -111,6 +111,20 @@ Na primeira execução com o banco vazio, a API popula automaticamente as coleç
 dados fake descrito em [Dados fake pré-carregados](#dados-fake-pré-carregados). Em execuções
 seguintes, os dados já existentes são preservados.
 
+### Variáveis de ambiente
+
+O projeto carrega configurações de um arquivo `.env` com Dotenv. Use `.env.example` como modelo;
+`.env` é ignorado pelo Git. As variáveis `ADMIN_EMAIL`, `ADMIN_SENHA`, `ALUNO_EMAIL` e `ALUNO_SENHA`
+são usadas pelos helpers de autenticação dos testes e podem ser omitidas para usar as credenciais
+seedadas de demonstração.
+
+### Testes
+
+Execute `npm test` com o MongoDB disponível. Os testes usam Mocha, SuperTest e Chai, e o fluxo de
+cadastro, matrícula e entrega percorre os casos de `test/fixtures/fluxoEntregaTrabalho.json`.
+O workflow `.github/workflows/tests.yml` executa a mesma suíte em cada push ou pull request para
+`main`, com um serviço MongoDB dedicado.
+
 ## Documentação da API (Swagger)
 
 A documentação completa de todas as rotas, parâmetros, corpos de requisição e respostas está
