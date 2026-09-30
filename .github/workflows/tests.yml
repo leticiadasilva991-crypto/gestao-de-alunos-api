@@ -43,10 +43,20 @@ jobs:
           ADMIN_EMAIL: admin@escola.com
           ADMIN_SENHA: admin123
 
-      - name: Publicar relatório Mochawesome
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
         if: always()
-        uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
-          name: mochawesome-report
-          path: mochawesome-report/
-          if-no-files-found: warn
+          name: test-results
+          path: test-results.json
+
+      - name: Publicar relatório
+        uses: dorny/test-reporter@v3
+        if: always()
+        continue-on-error: true
+        with:
+          artifact: test-results
+          name: Mocha Tests
+          path: 'test-results.json'
+          reporter: mocha-json
