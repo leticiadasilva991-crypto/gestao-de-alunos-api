@@ -1,7 +1,6 @@
 name: Testes de API
 
 on:
-  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
@@ -43,24 +42,10 @@ jobs:
           ADMIN_EMAIL: admin@escola.com
           ADMIN_SENHA: admin123
 
-      - name: Executar testes e gerar relatório
-        run: npx mocha --reporter json --reporter-option output=test-results.json
-        continue-on-error: true
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v7
+      - name: Publicar relatório Mochawesome
         if: always()
-        continue-on-error: true
+        uses: actions/upload-artifact@v4
         with:
-          name: test-results
-          path: test-results.json
-
-      - name: Publicar relatório
-        uses: dorny/test-reporter@v3
-        if: always()
-        continue-on-error: true
-        with:
-          artifact: test-results
-          name: Mocha Tests
-          path: 'test-results.json'
-          reporter: mocha-json
+          name: mochawesome-report
+          path: mochawesome-report/
+          if-no-files-found: warn
